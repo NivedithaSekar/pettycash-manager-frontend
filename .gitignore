@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 workoutCodes.txt
-
+.env
 
 # testing
 /coverage
