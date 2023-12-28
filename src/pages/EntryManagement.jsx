@@ -263,7 +263,7 @@ const FilterForm = ({ dispatch }) => {
             <DemoContainer components={["DatePicker"]}>
               <DatePicker
                 className="input-field"
-                label="From"
+                label="From(>=)"
                 value={dayjs(filterForm.from_date)}
                 disableFuture={true}
                 onChange={(newValue) => {
@@ -281,7 +281,7 @@ const FilterForm = ({ dispatch }) => {
             <DemoContainer components={["DatePicker"]}>
               <DatePicker
                 className="input-field"
-                label="To"
+                label="To(<)"
                 value={dayjs(filterForm.to_date)}
                 disableFuture={true}
                 onChange={(newValue) => {
