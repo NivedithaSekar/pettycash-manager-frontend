@@ -1,69 +1,39 @@
-# Getting Started with Create React App
+# Pettypal - simplifying cash management with a smile!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pettypal is a web-based application designed to help people (individuals / professionals - Pettycash managers) to manage their petty cash transactions. User can signup and start using this for tracking the transactions(Fund_In / Fund_Out) made, managing the capital balance & maintaining the updates of the transactions/capital balance and user!
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+# User
+1. User Signup - Signing up automatically creates a capital balance account for the individual with capital balance:0
+2. User Login & Logout
+3. Profile - User can view their profile details.
+# Capital balance Management
+# Manage Entries
+4. Transaction Creation - User can create a transactions with the required details(type: Fund_in, Fund_out, category, description, paid to, amount,..)
+5. Transaction Edit - User can edit the transaction at the required time(except for type)
+6. Delete Transaction - User can delete the transaction at the required circumstances.
+7. Performing all the above 3 activities, Capital balance are updated and transactions are linked to it.
+8. View Transaction - User can view the entire details of the transaction in View transaction page.
+# View All & Filter required
+9. In Main page,
+     User can view all the transactions created/registered by them.
+     User with view the total capital balance available.
+     User can apply filter and search according to one's requirement.
+# Dashboard
+10. Dashboard provides an overview of transaction category and total amount spend across at different types.
+11. User can apply filter(month/year) to filter out the transactions as per their requirement.
 
-### `npm start`
+### Technology used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
++ Frontend: React.js, Redux , React Router
++ Backend: Node.js, Express.js
++ Database: MongoDB
++ Authentication: JSON Web Tokens (JWT)
++ Additional Libraries:Axios, MUI(Components & Theme), Nivo charts, dayjs, formik, yup
 
 ### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Netlify deployment - 
 
 ### `npm run build` fails to minify
 
