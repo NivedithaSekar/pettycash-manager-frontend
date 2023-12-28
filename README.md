@@ -33,8 +33,4 @@ Pettypal is a web-based application designed to help people (individuals / profe
 + Additional Libraries:Axios, MUI(Components & Theme), Nivo charts, dayjs, formik, yup
 
 ### Deployment
-Netlify deployment - 
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Netlify deployment - https://nv-pettypal.netlify.app
