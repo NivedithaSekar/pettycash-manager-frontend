@@ -30,7 +30,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import dayjs from "dayjs";
 
-
 const EntryManagement = () => {
   const user = JSON.parse(localStorage.getItem("user")) || {};
   //Initial declaration of variables
@@ -58,7 +57,6 @@ const EntryManagement = () => {
     window.history.pushState(null, "", path);
   }, [backdropActivity]);
 
-
   const getEntries = async () => {
     await backendInstance
       .get(`/balance?userId=${user.userID}`)
@@ -73,8 +71,6 @@ const EntryManagement = () => {
       });
   };
 
-  
-
   // const checkSessionExpiry = async () => {
   //   const response = await backendInstance.get(`/`);
   //   if (response.data.message === "Not Authorized!!" || response.data.message=== "Invalid token") {
@@ -87,39 +83,40 @@ const EntryManagement = () => {
   const handleFilterEntry = (state, action) => {
     const filterObj = action.filterObj;
     if (action.type === "GET_DATA") {
-      return({
+      return {
         ...state,
         isFilterActive: false,
-        filteredTransactions:entries.transactions,
-        filterObj: action.filterObj
-      });
+        filteredTransactions: entries.transactions,
+        filterObj: action.filterObj,
+      };
     } else {
       const filteredEntries = entries.transactions.filter((entry) => {
-        let createdDate = dayjs(entry.createdAt); 
-        
-        return filterObj.type != "-"
-          ? entry.type == filterObj.type
-          : entries && filterObj.category != "-"
-          ? entry.category == filterObj.category
-          : entries && filterObj.from_date != "01-01-1900"
-          ? dayjs(createdDate).isAfter(dayjs(filterObj.to_date).endOf("day"))
-          : entries && filterObj.to_date != "01-01-1900"
-          ? dayjs(createdDate).isBefore(dayjs(filterObj.to_date).endOf("day"))
-          : entries;
-        });
-          return({
-            ...state,
-            isFilterActive: true,
-            filteredTransactions:filteredEntries,
-            filterObj : action.filterObj
-          })
+        let createdDate = dayjs(entry.createdAt);
+        return (
+          (filterObj.type !== "-" ? entry.type === filterObj.type : true) &&
+          (filterObj.category !== "-" ? entry.category === filterObj.category : true) &&
+          (filterObj.from_date !== "01-01-1900"
+            ? createdDate.isAfter(dayjs(filterObj.from_date).endOf("day"))
+            : true) &&
+          (filterObj.to_date !== "01-01-1900"
+            ? createdDate.isBefore(dayjs(filterObj.to_date).endOf("day"))
+            : true)
+        );
+      });
+
+      return {
+        ...state,
+        isFilterActive: true,
+        filteredTransactions: filteredEntries,
+        filterObj: action.filterObj,
+      };
     }
   };
-  
+
   const [filterEntry, setFilterEntry] = useReducer(handleFilterEntry, {
     filterObj: {},
     isFilterActive: false,
-    filteredTransactions:[]
+    filteredTransactions: [],
   });
   return (
     <Box sx={{ flexGrow: 1, p: "10px" }}>
@@ -129,13 +126,13 @@ const EntryManagement = () => {
         spacing={2}
         sx={{
           pr: 10,
-          pl:10,
+          pl: 10,
           alignItems: "center",
           flexDirection: "row-reverse",
           justifyContent: "space-between",
         }}
       >
-        <Grid item >
+        <Grid item>
           <IconButton
             color={colors.primary[400]}
             aria-label="Create New Entry"
@@ -172,7 +169,9 @@ const EntryManagement = () => {
       {"transactions" in entries ? (
         <MoneyEntries
           entries={
-            filterEntry.isFilterActive ? filterEntry.filteredTransactions : entries.transactions
+            filterEntry.isFilterActive
+              ? filterEntry.filteredTransactions
+              : entries.transactions
           }
         />
       ) : (
@@ -197,7 +196,7 @@ const FilterForm = ({ dispatch }) => {
   //form submission handler
   function handleFormSubmission(e) {
     e.preventDefault();
-    dispatch({ type:"GET_FILTERED_DATA", filterObj: filterForm});
+    dispatch({ type: "GET_FILTERED_DATA", filterObj: filterForm });
   }
 
   //Filter form component
@@ -308,7 +307,7 @@ const FilterForm = ({ dispatch }) => {
           sx={{ minWidth: "5%", borderRadius: "50%", ml: 2 }}
           onClick={() => {
             setfilterForm(INITIAL_FILTER_STATE);
-            dispatch({ type:"GET_DATA", filterObj: filterForm});
+            dispatch({ type: "GET_DATA", filterObj: filterForm });
           }}
         >
           <RestartAltIcon sx={{ fontSize: "3rem" }} />
